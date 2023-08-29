@@ -6,9 +6,9 @@ spring:
       password: ${mongodb.password}
       database: data_db
       port: 27017
-      host: localhost
+      host: mongodb
     redis:
-      host: localhost
+      host: redis
       port: 6379
       password: ${redis.cache.password}
   cache:
@@ -25,5 +25,5 @@ management:
   otlp:
    metrics:
     export:
-     url: http://localhost:4318/v1/metrics
+     url: http://jaeger:4318/v1/metrics
      enabled: true

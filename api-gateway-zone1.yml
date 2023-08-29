@@ -8,7 +8,7 @@ spring:
           enabled: true
   data:
     redis:
-      host: localhost
+      host: redis
       port: 6379
       password: eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
   cache:
@@ -27,5 +27,5 @@ management:
   otlp:
    metrics:
     export:
-     url: http://localhost:4318/v1/metrics
+     url: http://jaeger:4318/v1/metrics
      enabled: true

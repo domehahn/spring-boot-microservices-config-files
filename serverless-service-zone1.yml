@@ -1,6 +1,6 @@
 spring:
   rabbitmq:
-    host: localhost
+    host: rabbitmq
     port: 5672
     username: ${rabbitmq.username}
     password: ${rabbitmq.password}
@@ -29,5 +29,5 @@ management:
   otlp:
    metrics:
     export:
-     url: http://localhost:4318/v1/metrics
+     url: http://jaeger:4318/v1/metrics
      enabled: true

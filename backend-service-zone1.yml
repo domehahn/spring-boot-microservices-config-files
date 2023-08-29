@@ -7,7 +7,7 @@ micronaut:
         step: PT1M
     enabled: true
 rabbitmq:
-  host: localhost
+  host: rabbitmq
   port: 5672
   username: ${RABBITMQ_USERNAME}
   password: ${RABBITMQ_PASSWORD}
