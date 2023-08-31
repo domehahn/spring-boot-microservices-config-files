@@ -27,7 +27,5 @@ management:
     sampling:
       probability: 1.0
   otlp:
-   metrics:
-    export:
-     url: http://jaeger:4318/v1/metrics
-     enabled: true
+    tracing:
+      endpoint: http://jaeger:4318/v1/traces
