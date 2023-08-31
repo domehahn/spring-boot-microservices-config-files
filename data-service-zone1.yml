@@ -6,11 +6,19 @@ spring:
       password: ${mongodb.password}
       database: data_db
       port: 27017
-      host: mongodb
+      host: mongodb-data
     redis:
       host: redis
       port: 6379
       password: ${redis.cache.password}
+      sentinel:
+        master: redis-master
+        nodes:
+          - sentinel-1:26379
+          - sentinel-2:26380
+          - sentinel-3:26381
+      lettuce:
+        shutdown-timeout: 200ms
   cache:
     type: redis
 management:
@@ -23,7 +31,5 @@ management:
     sampling:
       probability: 1.0
   otlp:
-   metrics:
-    export:
-     url: http://jaeger:4318/v1/metrics
-     enabled: true
+    tracing:
+      endpoint: http://jaeger:4318/v1/traces
