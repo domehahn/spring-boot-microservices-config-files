@@ -16,6 +16,15 @@ spring:
         shutdown-timeout: 200ms
   cache:
     type: redis
+  cloud:
+    gateway:
+      routes:
+        - id: event-service
+          uri: lb://event-service
+          predicates:
+            - Path=/event/**
+          filters:
+            - RewritePath=/event/(?<path>.*), /$\{path}
 management:
   security:
     enabled: false
