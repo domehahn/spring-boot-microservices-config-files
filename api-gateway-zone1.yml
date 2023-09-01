@@ -17,16 +17,7 @@ spring:
   cache:
     type: redis
   cloud:
-    consul:
-      discovery:
-        instanceZone: zone1
-        register: false
-        registerHealthCheck: false
-        tags: zone=zone1
     gateway:
-      discovery:
-         locator:
-           enabled: true
       default-filters:
         - name: RequestRateLimiter
           args:
@@ -43,8 +34,10 @@ spring:
             - Path=/event/**
           filters:
             - RewritePath=/event/(?<path>.*), /$\{path}
+
 apiKeyResolver:
   type: eu.aboutdev.microservice.ratelimiting.ApiKeyResolver
+
 management:
   security:
     enabled: false
@@ -59,5 +52,3 @@ management:
   otlp:
    tracing:
     endpoint: http://jaeger:4318/v1/traces
-server:
-  port: ${PORT:8080}
