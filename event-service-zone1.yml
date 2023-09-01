@@ -14,9 +14,11 @@ spring:
     port: 5672
     username: ${rabbitmq.username}
     password: ${rabbitmq.password}
+
 rabbit:
   event:
     queue: q.event-queue
+
 management:
   endpoints:
     web:
@@ -32,3 +34,6 @@ management:
   otlp:
     tracing:
       endpoint: http://jaeger:4318/v1/traces
+
+server:
+  port: 0

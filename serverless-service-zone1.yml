@@ -12,11 +12,13 @@ spring:
           max-interval: 20s
           max-attempts: 5
           multiplier: 2
+
 rabbit:
   backend:
     queue: q.backend-queue
   fail:
     queue: q.fail-queue
+
 management:
   endpoints:
     web:
