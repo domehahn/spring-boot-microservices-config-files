@@ -14,6 +14,11 @@ spring:
           - sentinel-3:26381
       lettuce:
         shutdown-timeout: 200ms
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://keycloak:8080/realms/microservice
   cache:
     type: redis
   cloud:
@@ -34,6 +39,7 @@ spring:
             - Path=/event/**
           filters:
             - RewritePath=/event/(?<path>.*), /$\{path}
+            - TokenRelay=
 
 apiKeyResolver:
   type: eu.aboutdev.microservice.ratelimiting.ApiKeyResolver
